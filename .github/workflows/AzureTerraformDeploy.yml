@@ -81,14 +81,14 @@ jobs:
       # with:
       #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-    - name: Terraform force unlock
-      run: terraform force-unlock 9896825d-99a8-819f-cce9-d7b1fd8e771d
-      working-directory: ./terraform
-
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init -lock=false
+      run: terraform init
       working-directory: ./terraform
+
+    - name: Terraform force unlock
+      run: terraform force-unlock 9896825d-99a8-819f-cce9-d7b1fd8e771d
+      working-directory: ./terraform  
 
     # # Checks that all Terraform configuration files adhere to a canonical format
     # - name: Terraform Format
