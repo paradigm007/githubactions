@@ -86,9 +86,9 @@ jobs:
       run: terraform init
       working-directory: ./terraform
 
-    - name: Terraform force unlock
-      run: terraform force-unlock -force 9896825d-99a8-819f-cce9-d7b1fd8e771d
-      working-directory: ./terraform  
+    # - name: Terraform force unlock
+    #   run: terraform force-unlock -force 9896825d-99a8-819f-cce9-d7b1fd8e771d
+    #   working-directory: ./terraform  
 
     # # Checks that all Terraform configuration files adhere to a canonical format
     # - name: Terraform Format
