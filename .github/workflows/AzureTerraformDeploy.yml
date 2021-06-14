@@ -64,10 +64,9 @@ jobs:
       uses: actions/checkout@v2
 
     - name: Azure CLI script
-        uses: azure/CLI@v1
-        with:
-          azcliversion: 2.0.72
-          inlineScript: |
+      uses: azure/CLI@v1
+      with:
+        inlineScript: |
           az account list
     # # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     # - name: Setup Terraform
