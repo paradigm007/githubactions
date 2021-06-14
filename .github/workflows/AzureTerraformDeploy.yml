@@ -81,9 +81,13 @@ jobs:
       # with:
       #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+    - name: Terraform force unlock
+      run: terraform force-unlock 9896825d-99a8-819f-cce9-d7b1fd8e771d
+      working-directory: ./terraform
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init
+      run: terraform init -lock=false
       working-directory: ./terraform
 
     # # Checks that all Terraform configuration files adhere to a canonical format
@@ -93,15 +97,11 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan
-      working-directory: ./terraform
-
-    - name: Terraform force unlock
-      run: terraform force-unlock 9896825d-99a8-819f-cce9-d7b1fd8e771d
+      run: terraform plan -lock=false
       working-directory: ./terraform
 
       # On push to main, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-      run: terraform apply -auto-approve
+      run: terraform apply -auto-approve -lock=false
       working-directory: ./terraform
