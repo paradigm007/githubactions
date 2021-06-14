@@ -6,7 +6,7 @@ provider "azurerm" {
 terraform {
   backend "azurerm" {
     resource_group_name  = "tejit-actions-test"
-    storage_account_name = "tejit-tfstates"
+    storage_account_name = "tejittfstates"
     container_name       = "terraform-state"
     key                  = "terraform.tfstate"
   }
