@@ -1,7 +1,7 @@
 name: Hello World
 
 on: 
-[repository_dispatch]
+  [repository_dispatch]
 
 jobs:
   hello-world:
