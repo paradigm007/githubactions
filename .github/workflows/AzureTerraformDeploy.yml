@@ -49,8 +49,8 @@ name: 'AzureTerraformDeploy'
 #     branches:
 #     - main
     
-  on:
-    [repository_dispatch]
+  # on:
+  #   [repository_dispatch]
 
 jobs:
 
