@@ -44,10 +44,13 @@
 
 name: 'AzureTerraformDeploy'
 
-on:
-  push:
-    branches:
-    - main
+# on:
+#   push:
+#     branches:
+#     - main
+    
+  on:
+    [repository_dispatch]
     
 jobs:
 
