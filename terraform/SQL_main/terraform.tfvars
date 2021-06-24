@@ -1,4 +1,4 @@
-resource_group_name         = "tejit-actions-sql"
+resource_group_name         = "tejit-actions-sql-1"
 resource_group_location     = "eastus"
 # virtual_network_name        = "vnet2021"
 # subnet_name                 = "subnet2021"
