@@ -48,8 +48,8 @@ on:
   push:
     branches:
     - main
-    # paths:
-    # - 'terraform/SQL_main/**'
+    paths:
+    - terraform/SQL_main/**
   
     
   # on:

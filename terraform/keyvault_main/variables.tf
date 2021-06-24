@@ -3,10 +3,10 @@ variable "resource_group_name" {
   description = "RG name in Azure"
 }
 
-# variable "resource_group_location" {
-#   type        = string
-#   description = "RG location in Azure"
-# }
+variable "resource_group_location" {
+  type        = string
+  description = "RG location in Azure"
+}
 
 # variable "virtual_network_name" {
 #   type        = string

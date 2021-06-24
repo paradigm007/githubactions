@@ -48,8 +48,8 @@ on:
   push:
     branches:
     - main
-    # paths:
-    # - 'terraform/keyvault_main/**'
+    paths:
+    - terraform/keyvault_main/**
 
   # on:
   #   [repository_dispatch]

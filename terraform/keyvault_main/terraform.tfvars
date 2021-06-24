@@ -1,5 +1,5 @@
 resource_group_name         = "tejit-actions-keyvault-12"
-# resource_group_location     = "eastus"
+resource_group_location     = "eastus"
 # virtual_network_name        = "vnet2021"
 # subnet_name                 = "subnet2021"
 # public_ip_name              = "publicip2021"
