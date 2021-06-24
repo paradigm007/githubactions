@@ -49,7 +49,7 @@ on:
     branches:
     - main
     paths:
-    - 'githubactions/terraform/SQL_main/**'
+    - 'terraform/SQL_main/**'
   
     
   # on:
@@ -87,11 +87,6 @@ jobs:
     #     $psversiontable;
     #     Get-Process;
 
-    - name: Azure CLI script
-      uses: azure/CLI@v1
-      with:
-        inlineScript: |
-          az account list
     #Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
