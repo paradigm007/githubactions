@@ -44,10 +44,12 @@
 
 name: 'AzureTerraformDeploy'
 
-# on:
-#   push:
-#     branches:
-#     - main
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'githubactions/terraform/keyvault_main/**'
     
   # on:
   #   [repository_dispatch]
@@ -55,7 +57,7 @@ name: 'AzureTerraformDeploy'
 jobs:
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
@@ -63,15 +65,15 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
 
-    # steps:
+    steps:
 
-    # - name: Login to Azure
-    #   uses: azure/login@v1
-    #   with:
-    #     creds: ${{ secrets.AZURE_CREDENTIALS}}
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS}}
 
-    # - name: Checkout Source code
-    #   uses: actions/checkout@v2
+    - name: Checkout Source code
+      uses: actions/checkout@v2
 
     # steps:
     # - uses: actions/checkout@v1
@@ -98,7 +100,7 @@ jobs:
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
       run: terraform init
-      working-directory: ./terraform
+      working-directory: ./terraform/keyvault_main/
 
     # - name: Terraform force unlock
     #   run: terraform force-unlock -force 9896825d-99a8-819f-cce9-d7b1fd8e771d
@@ -112,10 +114,10 @@ jobs:
     # Generates an execution plan for Terraform
     - name: Terraform Plan
       run: terraform plan -lock=false
-      working-directory: ./terraform
+      working-directory: ./terraform/keyvault_main/
 
       # On push to main, build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
       run: terraform apply -auto-approve -lock=false
-      working-directory: ./terraform
+      working-directory: ./terraform/keyvault_main/

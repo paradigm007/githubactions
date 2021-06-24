@@ -44,10 +44,13 @@
 
 name: 'AzureTerraformDeploy'
 
-# on:
-#   push:
-#     branches:
-#     - main
+on:
+  push:
+    branches:
+    - main
+    paths:
+    - 'githubactions/terraform/SQL_main/**'
+  
     
   # on:
   #   [repository_dispatch]
@@ -55,7 +58,7 @@ name: 'AzureTerraformDeploy'
 jobs:
 
   deploy:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     env:
       ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
@@ -63,15 +66,15 @@ jobs:
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
       ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
 
-    # steps:
+    steps:
 
-    # - name: Login to Azure
-    #   uses: azure/login@v1
-    #   with:
-    #     creds: ${{ secrets.AZURE_CREDENTIALS}}
+    - name: Login to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_CREDENTIALS}}
 
-    # - name: Checkout Source code
-    #   uses: actions/checkout@v2
+    - name: Checkout Source code
+      uses: actions/checkout@v2
 
     # steps:
     # - uses: actions/checkout@v1
@@ -92,8 +95,8 @@ jobs:
     Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform
       uses: hashicorp/setup-terraform@v1
-      # with:
-      #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+    #   # with:
+    #   #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
