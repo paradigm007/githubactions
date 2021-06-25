@@ -92,9 +92,18 @@ jobs:
       # with:
       #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+    # Initialize backend folder value
+
+    # - name: Backendfolder value
+    #   run: export backendfolder = var.backendfolder
+    
+    # # Initialize the Directory variable for azurerm Backend
+    # - name: Export Key
+    #   run: export TF_CLI_ARGS_init="-backend-config='key=keyvault/${backendfolder}/terraform.tfstate'"
+
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init -backend-config "key=$TF_VAR_keyvault/$TF_VAR_backendfolder/$TF_VAR_tfstate"
+      run: terraform init -backend-config "key=keyvault/keyvault_request1/terraform.tfstate"
       working-directory: ./terraform/keyvault_main/
 
     # - name: Terraform force unlock
