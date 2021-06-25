@@ -12,6 +12,8 @@ jobs:
 
     steps:
 
+    # env:
+    #   GITHUB_WORKSPACE: ${{ toJSON(github) }}
     # - name: Login to Azure
     #   uses: azure/login@v1
     #   with:
@@ -28,7 +30,6 @@ jobs:
     #   run: pwsh -command ".\$GITHUB_WORKSPACE\powershell_scripts\script1.ps1"
 
 
-    - name: Dump GitHub context
-
-      env:
-        GITHUB_WORKSPACE: ${{ toJSON(github) }}
+    # - name: Dump GitHub context
+    #   run: echo "$GITHUB_w"
+      
