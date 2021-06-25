@@ -1,6 +1,8 @@
 resource_group_name         = "tejit-actions-keyvault-11"
 resource_group_location     = "eastus"
 backendfolder = "keyvault_request1"
+keyvault = "keyvault"
+tfstate = "terraform.tfstate"
 # virtual_network_name        = "vnet2021"
 # subnet_name                 = "subnet2021"
 # public_ip_name              = "publicip2021"

@@ -94,7 +94,7 @@ jobs:
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     - name: Terraform Init
-      run: terraform init -backend-config "key=keyvault/$TF_VAR_backendfolder/terraform.tfstate"
+      run: terraform init -backend-config "key=$TF_VAR_keyvault/$TF_VAR_backendfolder/$TF_VAR_tfstate"
       working-directory: ./terraform/keyvault_main/
 
     # - name: Terraform force unlock

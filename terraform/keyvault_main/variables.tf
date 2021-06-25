@@ -13,6 +13,16 @@ variable "backendfolder" {
   description = "Tfstate backend folder name"
 }
 
+variable "keyvault" {
+  type        = string
+  description = "Tfstate backend folder name"
+}
+
+variable "tfstate" {
+  type        = string
+  description = "Tfstate backend folder name"
+}
+
 # variable "virtual_network_name" {
 #   type        = string
 #   description = "VNET name in Azure"
