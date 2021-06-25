@@ -60,6 +60,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
+      BACKEND_FOLDER: keyvault_request2
       ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
       ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
@@ -94,17 +95,24 @@ jobs:
 
     # Initialize backend folder value
 
-    - name: Backendfolder value
-      run: export backendfolder = keyvault_request2
+    # - name: Azure CLI script
+    #   uses: azure/CLI@v1
+    #   with:
+    #     azcliversion: 2.0.72
+    #     inlineScript: |
+    #       export backendfolder = keyvault_request2
+    #       export TF_CLI_ARGS_init="-backend-config='key=keyvault/${backendfolder}/terraform.tfstate'"
+
+   
     
     # # Initialize the Directory variable for azurerm Backend
-    - name: Export Key
-      run: export TF_CLI_ARGS_init="-backend-config='key=keyvault/${backendfolder}/terraform.tfstate'"
+    # - name: Export Key
+    #   run: export TF_CLI_ARGS_init="-backend-config='key=keyvault/${backendfolder}/terraform.tfstate'"
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
-    # - name: Terraform Init
-    #   run: terraform init -backend-config "key=keyvault/keyvault_request1/terraform.tfstate"
-    #   working-directory: ./terraform/keyvault_main/
+    - name: Terraform Init
+      run: terraform init -backend-config "key=keyvault/${env.BACKEND_FOLDER}/terraform.tfstate"
+      working-directory: ./terraform/keyvault_main/
 
     # - name: Terraform force unlock
     #   run: terraform force-unlock -force 9896825d-99a8-819f-cce9-d7b1fd8e771d
