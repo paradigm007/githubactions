@@ -8,6 +8,11 @@ variable "resource_group_location" {
   description = "RG location in Azure"
 }
 
+variable "backend_folder" {
+  type        = string
+  description = "Tfstate backend folder name"
+}
+
 # variable "virtual_network_name" {
 #   type        = string
 #   description = "VNET name in Azure"
