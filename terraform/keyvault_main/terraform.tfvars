@@ -1,4 +1,4 @@
-resource_group_name         = "tejit-actions-keyvault-14"
+resource_group_name         = "tejit-actions-keyvault-11"
 resource_group_location     = "eastus"
 backendfolder = "keyvault_request1"
 keyvault = "keyvault"
