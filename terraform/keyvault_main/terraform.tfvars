@@ -1,6 +1,6 @@
 resource_group_name         = "tejit-actions-keyvault-12"
 resource_group_location     = "eastus"
-backend_folder = "keyvault_request1"
+backendfolder = "keyvault_request1"
 # virtual_network_name        = "vnet2021"
 # subnet_name                 = "subnet2021"
 # public_ip_name              = "publicip2021"
