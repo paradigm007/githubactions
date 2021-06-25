@@ -50,6 +50,7 @@ on:
     - main
     paths:
     - terraform/keyvault_main/**
+  workflow_dispatch:
 
   # on:
   #   [repository_dispatch]
