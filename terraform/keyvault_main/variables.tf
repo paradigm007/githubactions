@@ -8,7 +8,7 @@ variable "resource_group_location" {
   description = "RG location in Azure"
 }
 
-variable "backend_folder" {
+variable "backendfolder" {
   type        = string
   description = "Tfstate backend folder name"
 }

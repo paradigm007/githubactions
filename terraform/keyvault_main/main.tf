@@ -3,16 +3,16 @@ provider "azurerm" {
   features {}
 }
 
-locals {
-  domain = "keyvault/${var.backend_folder}/terraform.tfstate"
-}
+# locals {
+#   domain = "keyvault/${var.backend_folder}/terraform.tfstate"
+# }
 
 terraform {
   backend "azurerm" {
     resource_group_name  = "tejit-actions-test"
     storage_account_name = "tejittfstates"
     container_name       = "terraform-state"
-    key                  = "${local.domain}"
+    key                  = "keyvault/${var.backendfolder}/terraform.tfstate"
   }
 }
 
