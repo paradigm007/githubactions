@@ -8,7 +8,7 @@ terraform {
     resource_group_name  = "tejit-actions-test"
     storage_account_name = "tejittfstates"
     container_name       = "terraform-state"
-    key                  = "terraform.tfstate"
+    key                  = "keyvault/${var.backend_folder}/terraform.tfstate"
   }
 }
 
