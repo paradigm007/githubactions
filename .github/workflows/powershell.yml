@@ -26,3 +26,6 @@ jobs:
       run: |
         $psversiontable;
         Get-Process;
+    
+    - name: Run PowerShell Test script
+      run: pwsh -command ".\$GITHUB_WORKSPACE\powershell_scripts\script1.ps1"
