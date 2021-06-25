@@ -27,7 +27,7 @@ jobs:
 
     
     - name: Run PowerShell Test script
-      run: ".\$GITHUB_WORKSPACE\script2.ps1" 
+      run: ".\script2.ps1" 
       shell: powershell
       # run: pwsh -command ".\$GITHUB_WORKSPACE\script2.ps1"
 
