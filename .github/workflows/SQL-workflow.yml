@@ -1,4 +1,4 @@
-name: MainRepository_Dispatch_Test
+name: Test_workflow
 
 on: [workflow_dispatch]
 
